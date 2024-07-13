@@ -9,6 +9,7 @@ const About = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       className="text-center py-20 bg-white"
+      style={{ paddingLeft: 20, paddingRight: 20 }}
     >
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold mb-4">Profile</h2>

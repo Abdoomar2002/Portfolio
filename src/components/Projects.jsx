@@ -77,6 +77,7 @@ const Projects = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="text-center py-20 bg-white"
+      style={{ paddingLeft: 20, paddingRight: 20 }}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-4">Projects</h2>

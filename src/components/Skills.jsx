@@ -84,6 +84,7 @@ const Skills = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="py-20 bg-gradient-to-r from-indigo-950 to-purple-900 text-white"
+      style={{ paddingLeft: 20, paddingRight: 20 }}
     >
       <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
       <div

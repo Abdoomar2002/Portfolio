@@ -8,7 +8,8 @@ const Hero = () => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="relative text-center py-20 bg-gradient-to-r from-indigo-950 to-purple-900 text-white flex flex-col md:flex-row items-center justify-center"
+      className="relative text-center py-40 bg-gradient-to-r from-indigo-950 to-purple-900 text-white flex flex-col md:flex-row items-center justify-center"
+      style={{ paddingLeft: 20, paddingRight: 20 }}
     >
       {/* Profile photo */}
       <motion.img
