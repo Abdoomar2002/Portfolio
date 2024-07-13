@@ -65,7 +65,7 @@ beautiful UI, working with a mid-level teammate`,
     github: "Private",
     description:
       "Created a web project for a company the manage all the clubs and hostel of the ministry of sport and youth.",
-    imageUrl: "/images/Egclub.png", // Example path to project image
+    imageUrl: "/images/EgClub.png", // Example path to project image
   },
   // Add more projects
 ];
