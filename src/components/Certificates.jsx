@@ -11,7 +11,7 @@ const certificates = [
   {
     title: "Code Challenge, Fatura",
     date: "2021",
-    image: "/images/fatura.jpg",
+    image: "/images/Fatura.jpg",
   },
   {
     title: "Code Challenge, Squadio",

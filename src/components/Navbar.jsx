@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("hero");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -49,7 +50,13 @@ const Navbar = () => {
             to="hero"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "hero"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("hero")}
           >
             Home
           </Link>
@@ -57,7 +64,13 @@ const Navbar = () => {
             to="about"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "about"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("about")}
           >
             About
           </Link>
@@ -65,7 +78,13 @@ const Navbar = () => {
             to="experience"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "exper"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("exper")}
           >
             Experience
           </Link>
@@ -73,7 +92,13 @@ const Navbar = () => {
             to="projects"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "proj"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("proj")}
           >
             Projects
           </Link>
@@ -81,7 +106,13 @@ const Navbar = () => {
             to="skills"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "skills"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("skills")}
           >
             Skills
           </Link>
@@ -89,7 +120,13 @@ const Navbar = () => {
             to="certificates"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "cert"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("cert")}
           >
             Certificates
           </Link>
@@ -97,7 +134,13 @@ const Navbar = () => {
             to="education"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "edu"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("edu")}
           >
             Education
           </Link>
@@ -105,7 +148,13 @@ const Navbar = () => {
             to="contact"
             smooth={true}
             duration={500}
-            className="hover:text-yellow-400 cursor-pointer"
+            className={
+              "hover:text-yellow-400 cursor-pointer" +
+              (active == "cont"
+                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                : "hover:text-yellow-400 cursor-pointer")
+            }
+            onClick={() => setActive("cont")}
           >
             Contact
           </Link>
