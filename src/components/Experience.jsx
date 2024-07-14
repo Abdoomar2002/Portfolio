@@ -57,23 +57,6 @@ participation (First Lego League)`,
           );
         })}
       </div>
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
-
-        {/* Example of a job entry */}
-        <div className="mb-8">
-          <h3 className="text-2xl font-bold">Instructor, Human For Good</h3>
-          <p className="text-lg font-semibold">12/2023 – present</p>
-          <ul className="list-disc list-inside">
-            <li>
-              Taught a comprehensive course on React JS and Desktop Application
-              from basics to advanced levels.
-            </li>
-          </ul>
-        </div>
-
-        {/* Add more job entries as needed */}
-      </div>
     </motion.div>
   );
 };
