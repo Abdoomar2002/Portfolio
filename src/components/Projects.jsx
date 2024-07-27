@@ -5,24 +5,6 @@ import { motion } from "framer-motion";
 const projects = [
   {
     id: 1,
-    title: "LOW Office, Desktop App",
-    link: "https://www.youtube.com/watch?v=3oAb8mh-GQY&t=3s",
-    github: "https://github.com/Abdoomar2002/LowOffice",
-    description:
-      "Developed an application for legal business organization, facilitating case management and notification systems using .NET, EF, SQL, PDF reader, Excel reader, pop notification, and print files.",
-    imageUrl: "/images/low-office.png", // Example path to project image
-  },
-  {
-    id: 2,
-    title: "Abu Fas, desktop App",
-    link: "https://dekkat-eleangaz.000webhostapp.com/",
-    github: "https://github.com/Abdoomar2002/AbuFas",
-    description: `Managed the market's operations including billing, locker management, and salary management using
-C#.NET, authentication and authorization, bill print, EF, SQL, multi-page, and archive.`,
-    imageUrl: "/images/AbuFas.png", // Example path to project image
-  },
-  {
-    id: 3,
     title: "Avvio Lighting, E-commerce web app",
     link: "https://avviolighting.com",
     github: "https://github.com/Abdoomar2002/AvvioLighting",
@@ -31,7 +13,7 @@ sales team using React JS, routing, Node.js backend, state management, and handl
     imageUrl: "/images/avvioLighting.png", // Example path to project image
   },
   {
-    id: 4,
+    id: 2,
     title: "DEKKAT ELENGAZ, Landing Page",
     link: "https://dekkat-eleangaz.000webhostapp.com/",
     github: "https://github.com/Abdoomar2002/dekat-alengaz",
@@ -40,7 +22,51 @@ sales team using React JS, routing, Node.js backend, state management, and handl
     imageUrl: "/images/dekkat.png", // Example path to project image
   },
   {
+    id: 3,
+    title: "Saf7a, dashboard",
+    link: "https://saf7a.net/",
+    github: "Private",
+    description: `Created a dashboard for the Saf7a application using React JS, Redux, router, backend connectivity, and
+beautiful UI, working with a mid-level teammate`,
+    imageUrl: "/images/saf7a.png", // Example path to project image
+  },
+  {
+    id: 4,
+    title: "Eg Clubs, Landing Page",
+    link: "http://egclubs.com/",
+    github: "Private",
+    description:
+      "Created a web project for a company the manage all the clubs and hostel of the ministry of sport and youth.",
+    imageUrl: "/images/EgClub.png", // Example path to project image
+  },
+  {
     id: 5,
+    title: "Batie Faleh Alshaabi Company",
+    link: "https://batie-faleh-al-shaabi-contracting.com/",
+    github: "Private",
+    description: `Created a web project for a company providing construting services using Nextjs, multi-page, email sending, and hosting.`,
+    imageUrl: "/images/batie.png",
+  },
+  {
+    id: 6,
+    title: "LOW Office, Desktop App",
+    link: "https://www.youtube.com/watch?v=3oAb8mh-GQY&t=3s",
+    github: "https://github.com/Abdoomar2002/LowOffice",
+    description:
+      "Developed an application for legal business organization, facilitating case management and notification systems using .NET, EF, SQL, PDF reader, Excel reader, pop notification, and print files.",
+    imageUrl: "/images/low-office.png", // Example path to project image
+  },
+  {
+    id: 7,
+    title: "Abu Fas, desktop App",
+    link: "https://dekkat-eleangaz.000webhostapp.com/",
+    github: "https://github.com/Abdoomar2002/AbuFas",
+    description: `Managed the market's operations including billing, locker management, and salary management using
+C#.NET, authentication and authorization, bill print, EF, SQL, multi-page, and archive.`,
+    imageUrl: "/images/AbuFas.png", // Example path to project image
+  },
+  {
+    id: 8,
     title: "HATLEY, Mobile App",
     link: "https://github.com/Abdoomar2002/Graduation_Project/tree/UserApp",
     github:
@@ -50,23 +76,15 @@ connectivity, real-time notification, and tracking system.`,
     imageUrl: "/images/Hatley.png", // Example path to project image
   },
   {
-    id: 6,
-    title: "Saf7a, dashboard",
-    link: "https://saf7a.net/",
+    id: 9,
+    title: "ToDo List React Native App",
+    link: "",
     github: "Private",
-    description: `Created a dashboard for the Saf7a application using React JS, Redux, router, backend connectivity, and
-beautiful UI, working with a mid-level teammate`,
-    imageUrl: "/images/saf7a.png", // Example path to project image
+    description: `This is a React Native ToDo List application built with Expo. The app allows users to create, manage, and schedule notifications for their to-do tasks. It also supports tagging tasks and managing them based on their tags.
+`,
+    imageUrl: "/images/todo.jpeg",
   },
-  {
-    id: 7,
-    title: "Eg Clubs, Landing Page",
-    link: "http://egclubs.com/",
-    github: "Private",
-    description:
-      "Created a web project for a company the manage all the clubs and hostel of the ministry of sport and youth.",
-    imageUrl: "/images/EgClub.png", // Example path to project image
-  },
+
   // Add more projects
 ];
 

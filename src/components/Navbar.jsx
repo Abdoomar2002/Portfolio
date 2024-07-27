@@ -1,11 +1,78 @@
 // src/components/Navbar.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
+  const navItems = [
+    {
+      id: 1,
+      name: "Home",
+      url: "hero",
+      active: "hero",
+    },
+    {
+      id: 2,
+      name: "About",
+      url: "about",
+      active: "about",
+    },
+    {
+      id: 3,
+      name: "Experience",
+      url: "experience",
+      active: "exper",
+    },
+    {
+      id: 4,
+      name: "Projects",
+      url: "projects",
+      active: "proj",
+    },
+    {
+      id: 5,
+      name: "Skills",
+      url: "skills",
+      active: "skill",
+    },
+    {
+      id: 6,
+      name: "Certificates",
+      url: "certificates",
+      active: "cert",
+    },
+    {
+      id: 7,
+      name: "Education",
+      url: "education",
+      active: "edu",
+    },
+    {
+      id: 8,
+      name: "Contact",
+      url: "contact",
+      active: "cont",
+    },
+  ];
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("hero");
+  const handleScroll = () => {
+    navItems.forEach((item) => {
+      const section = document.getElementById(item.url);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          setActive(item.active);
+        }
+      }
+    });
+  };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -46,118 +113,23 @@ const Navbar = () => {
             isOpen ? "block flex flex-col items-left justify-center" : "hidden"
           }`}
         >
-          <Link
-            to="hero"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "hero"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("hero")}
-          >
-            Home
-          </Link>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "about"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("about")}
-          >
-            About
-          </Link>
-          <Link
-            to="experience"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "exper"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("exper")}
-          >
-            Experience
-          </Link>
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "proj"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("proj")}
-          >
-            Projects
-          </Link>
-          <Link
-            to="skills"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "skills"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("skills")}
-          >
-            Skills
-          </Link>
-          <Link
-            to="certificates"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "cert"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("cert")}
-          >
-            Certificates
-          </Link>
-          <Link
-            to="education"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "edu"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("edu")}
-          >
-            Education
-          </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            className={
-              "hover:text-yellow-400 cursor-pointer" +
-              (active == "cont"
-                ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                : "hover:text-yellow-400 cursor-pointer")
-            }
-            onClick={() => setActive("cont")}
-          >
-            Contact
-          </Link>
+          {navItems.map((e) => (
+            <Link
+              key={e.id}
+              to={e.url}
+              smooth={true}
+              duration={500}
+              className={
+                "hover:text-yellow-400 cursor-pointer" +
+                (active == e.active
+                  ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
+                  : "hover:text-yellow-400 cursor-pointer")
+              }
+              onClick={() => setActive(e.active)}
+            >
+              {e.name}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
