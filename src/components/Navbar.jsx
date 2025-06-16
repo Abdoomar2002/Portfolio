@@ -1,137 +1,122 @@
 // src/components/Navbar.js
+'use client'
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const navItems = [
-    {
-      id: 1,
-      name: "Home",
-      url: "hero",
-      active: "hero",
-    },
-    {
-      id: 2,
-      name: "About",
-      url: "about",
-      active: "about",
-    },
-    {
-      id: 3,
-      name: "Experience",
-      url: "experience",
-      active: "exper",
-    },
-    {
-      id: 4,
-      name: "Projects",
-      url: "projects",
-      active: "proj",
-    },
-    {
-      id: 5,
-      name: "Skills",
-      url: "skills",
-      active: "skill",
-    },
-    {
-      id: 6,
-      name: "Certificates",
-      url: "certificates",
-      active: "cert",
-    },
-    {
-      id: 7,
-      name: "Education",
-      url: "education",
-      active: "edu",
-    },
-    {
-      id: 8,
-      name: "Contact",
-      url: "contact",
-      active: "cont",
-    },
-  ];
-  const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("hero");
-  const handleScroll = () => {
-    navItems.forEach((item) => {
-      const section = document.getElementById(item.url);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-          setActive(item.active);
-        }
-      }
-    });
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = window.location.pathname;
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/projects", label: "Projects" },
+    { path: "/blog", label: "Blog" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
-    <nav className="bg-gray-800 text-white fixed w-full z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="text-xl font-bold">Abdelrahman Omar</div>
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="focus:outline-none">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/95 backdrop-blur-sm shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <a href="/" className="flex items-center space-x-2">
+            <span className="text-2xl font-bold text-white">AB</span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.path}
+                href={link.path}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  location === link.path
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-400 hover:text-white focus:outline-none"
             >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-        <div
-          className={`md:flex space-x-4 ${
-            isOpen ? "block flex flex-col items-left justify-center" : "hidden"
-          }`}
-        >
-          {navItems.map((e) => (
-            <Link
-              key={e.id}
-              to={e.url}
-              smooth={true}
-              duration={500}
-              className={
-                "hover:text-yellow-400 cursor-pointer" +
-                (active == e.active
-                  ? "hover:text-yellow-400 cursor-pointer text-yellow-400"
-                  : "hover:text-yellow-400 cursor-pointer")
-              }
-              onClick={() => setActive(e.active)}
-            >
-              {e.name}
-            </Link>
-          ))}
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden bg-black/95 backdrop-blur-sm"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.path}
+                href={link.path}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  location === link.path
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </nav>
   );
 };

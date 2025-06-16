@@ -2,107 +2,182 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const skills = [
-  {
-    name: "React JS",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
-  {
-    name: "React Native",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
-  {
-    name: "TypeScript",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  },
-  {
-    name: "Redux",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-  },
-  {
-    name: "Git",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  },
-  {
-    name: "Jest",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
-  },
-  {
-    name: "NextJs",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  },
-  {
-    name: "OOP",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-  },
-  {
-    name: "DataStructure",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-  },
-  {
-    name: "ASP.NET",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
-  },
-  {
-    name: "Desktop Application Development",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-  },
-  {
-    name: "MVC",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
-  },
-  {
-    name: "C",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-  },
-  {
-    name: "C++",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-  },
-  {
-    name: "C#",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-  },
-  {
-    name: "Java",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-  },
-  {
-    name: "Node.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  {
-    name: "Python",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  },
-];
+const skills = {
+  frontend: [
+    "React.js",
+    "Angular",
+    "Vue.js",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "Bootstrap",
+    "Tailwind CSS",
+    "HTML5",
+    "CSS3",
+    "jQuery"
+  ],
+  backend: [
+    "C#",
+    "ASP.NET Core",
+    "ASP.NET MVC",
+    "ASP.NET WebForms",
+    "Entity Framework Core",
+    "RESTful APIs",
+    "Web API",
+    "OOP",
+    "Design Patterns",
+    "SOLID Principles",
+    "LINQ"
+  ],
+  databases: [
+    "SQL Server",
+    "SQLite"
+  ],
+  devops_tools: [
+    "Git",
+    "GitHub",
+    "Deployment via Vercel",
+    "Manual CI flows",
+    "Basic DNS and Email Configuration"
+  ],
+  project_management: [
+    "Trello",
+    "Jira"
+  ],
+  testing: [
+    "Jest",
+    "Manual UI testing",
+    "Excel-based output validation"
+  ],
+  soft_skills: [
+    "Problem-solving",
+    "Time management",
+    "Team collaboration",
+    "Adaptability",
+    "Self-learning",
+    "Communication"
+  ],
+  other: [
+    "WebSocket",
+    "JWT",
+    "Agile/Scrum",
+    "Debugging .NET Applications",
+    "Deploying .NET Web Applications",
+    "Building Scalable Web Systems",
+    "YouTube Content Creation (SOLID & Design Patterns)"
+  ]
+};
+
+const categoryIcons = {
+  frontend: "💻",
+  backend: "⚙️",
+  databases: "🗄️",
+  devops_tools: "🛠️",
+  project_management: "📋",
+  testing: "🧪",
+  soft_skills: "🤝",
+  other: "✨"
+};
+
+const categoryTitles = {
+  frontend: "Frontend Development",
+  backend: "Backend Development",
+  databases: "Databases",
+  devops_tools: "DevOps & Tools",
+  project_management: "Project Management",
+  testing: "Testing & Quality",
+  soft_skills: "Soft Skills",
+  other: "Other Skills"
+};
 
 const Skills = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="py-20 bg-gradient-to-r from-indigo-950 to-purple-900 text-white"
-      style={{ paddingLeft: 20, paddingRight: 20 }}
-    >
-      <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
-      <div
-        className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 "
-        style={{ padding: 20 }}
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            className="p-4 bg-white text-black rounded-lg shadow-md flex items-center"
-          >
-            <img src={skill.logo} alt={skill.name} className="w-10 h-10 mr-4" />
-            <span className="text-lg font-semibold">{skill.name}</span>
-          </motion.div>
-        ))}
+    <section className="py-16 bg-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-center mb-16 text-white"
+        >
+          Technical Expertise
+        </motion.h2>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {Object.entries(skills).map(([category, skillList]) => (
+            <motion.div
+              key={category}
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+              }}
+              className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">{categoryIcons[category]}</span>
+                <h3 className="text-xl font-bold text-white">
+                  {categoryTitles[category]}
+                </h3>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                {skillList.map((skill, index) => (
+                  <motion.span
+                    key={index}
+                    whileHover={{ 
+                      scale: 1.05,
+                      backgroundColor: "rgb(31, 41, 55)",
+                    }}
+                    className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Continuously expanding my skill set to stay at the forefront of web development technologies and best practices.
+          </p>
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 
