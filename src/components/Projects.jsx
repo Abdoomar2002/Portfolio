@@ -5,142 +5,205 @@ import { motion } from "framer-motion";
 const projects = [
   {
     id: 1,
-    title: "Avvio Lighting, E-commerce web app",
-    link: "https://avviolighting.com",
-    github: "https://github.com/Abdoomar2002/AvvioLighting",
-    description: `Developed a web app for a lighting factory to help customers explore different models and connect with the
-sales team using React JS, routing, Node.js backend, state management, and handling side effects.`,
-    imageUrl: "/images/avvioLighting.png", // Example path to project image
+    title: "Lawyer Case Management System",
+    technologies: ["C#", "WinForms", "SQLite", "Excel Export"],
+    description: "Manages cases, sessions, and notifications for a lawyer. Included push notifications and Excel report export.",
+    timeline: "Dec 2022 – May 2023",
+    imageUrl: "/images/lawyer-system.png",
   },
   {
     id: 2,
-    title: "DEKKAT ELENGAZ, Landing Page",
-    link: "https://dekkat-eleangaz.000webhostapp.com/",
-    github: "https://github.com/Abdoomar2002/dekat-alengaz",
-    description:
-      "Created a web project for a company providing insulation services using PHP, multi-page, email sending, and hosting.",
-    imageUrl: "/images/dekkat.png", // Example path to project image
+    title: "Construction Company Landing Page",
+    technologies: ["PHP", "HTML", "CSS"],
+    description: "Simple 3-page site for a construction company. Company later shut down.",
+    timeline: "May 2023",
+    imageUrl: "/images/construction.png",
   },
   {
     id: 3,
-    title: "Saf7a, dashboard",
-    link: "https://saf7a.net/",
-    github: "Private",
-    description: `Created a dashboard for the Saf7a application using React JS, Redux, router, backend connectivity, and
-beautiful UI, working with a mid-level teammate`,
-    imageUrl: "/images/saf7a.png", // Example path to project image
+    title: "Avvio Lighting Web App",
+    technologies: ["React", "API", "Cookies"],
+    description: "Product showcase web app with shareable links and user experience tracking.",
+    timeline: "July 2023",
+    imageUrl: "/images/avvio.png",
   },
   {
     id: 4,
-    title: "Eg Clubs, Landing Page",
-    link: "http://egclubs.com/",
-    github: "Private",
-    description:
-      "Created a web project for a company the manage all the clubs and hostel of the ministry of sport and youth.",
-    imageUrl: "/images/EgClub.png", // Example path to project image
+    title: "Gold Market Management System",
+    technologies: ["C#", ".NET", "SQLite"],
+    description: "Tracks inventory, customer borrowing, weight calculations, and gold categories.",
+    timeline: "Nov 2023 – Feb 2024",
+    imageUrl: "/images/gold-market.png",
   },
   {
     id: 5,
-    title: "Batie Faleh Alshaabi Company",
-    link: "https://batie-faleh-al-shaabi-contracting.com/",
-    github: "Private",
-    description: `Created a web project for a company providing construting services using Nextjs, multi-page, email sending, and hosting.`,
-    imageUrl: "/images/batie.png",
+    title: "Saf7a Platform",
+    technologies: ["React", ".NET", "Redux", "JWT", "WebSocket"],
+    description: "Educational platform dashboard for centers, including real-time communication.",
+    timeline: "March 2024 – Present",
+    imageUrl: "/images/saf7a.png",
   },
   {
     id: 6,
-    title: "LOW Office, Desktop App",
-    link: "https://www.youtube.com/watch?v=3oAb8mh-GQY&t=3s",
-    github: "https://github.com/Abdoomar2002/LowOffice",
-    description:
-      "Developed an application for legal business organization, facilitating case management and notification systems using .NET, EF, SQL, PDF reader, Excel reader, pop notification, and print files.",
-    imageUrl: "/images/low-office.png", // Example path to project image
+    title: "Graduation Delivery App",
+    technologies: ["React Native"],
+    description: "App where people post delivery jobs and couriers compete to accept them.",
+    timeline: "April – July 2024",
+    imageUrl: "/images/delivery-app.png",
   },
   {
     id: 7,
-    title: "Abu Fas, desktop App",
-    link: "https://dekkat-eleangaz.000webhostapp.com/",
-    github: "https://github.com/Abdoomar2002/AbuFas",
-    description: `Managed the market's operations including billing, locker management, and salary management using
-C#.NET, authentication and authorization, bill print, EF, SQL, multi-page, and archive.`,
-    imageUrl: "/images/AbuFas.png", // Example path to project image
+    title: "Club and Construction Landing Pages",
+    technologies: ["Next.js"],
+    description: "Quick landing pages to promote a Saudi club and a construction company.",
+    timeline: "July 2024",
+    imageUrl: "/images/landing-pages.png",
   },
   {
     id: 8,
-    title: "HATLEY, Mobile App",
-    link: "https://github.com/Abdoomar2002/Graduation_Project/tree/UserApp",
-    github:
-      "https://github.com/Abdoomar2002/Graduation_Project/tree/DeliveryApp",
-    description: `Built a delivery app for easy ordering as a graduation project using React Native, navigation, backend
-connectivity, real-time notification, and tracking system.`,
-    imageUrl: "/images/Hatley.png", // Example path to project image
+    title: "DSRent Platform",
+    technologies: ["Next.js", ".NET", "SMS API"],
+    description: "Converted WordPress site to Next.js, added dashboard, and integrated messaging.",
+    timeline: "Aug – Nov 2024",
+    imageUrl: "/images/dsrent.png",
   },
   {
     id: 9,
-    title: "ToDo List React Native App",
-    link: "",
-    github: "Private",
-    description: `This is a React Native ToDo List application built with Expo. The app allows users to create, manage, and schedule notifications for their to-do tasks. It also supports tagging tasks and managing them based on their tags.
-`,
-    imageUrl: "/images/todo.jpeg",
+    title: "Police Station Execution System",
+    technologies: ["C#", ".NET", "SQL Server"],
+    description: "Multi-station system for execution management across six locations.",
+    timeline: "Nov 2024",
+    imageUrl: "/images/police-system.png",
   },
-
-  // Add more projects
+  {
+    id: 10,
+    title: "POS System for Supermarket",
+    technologies: ["C#", ".NET", "SQL Server"],
+    description: "User-friendly cashier system for managing inventory and daily transactions.",
+    timeline: "Dec 2024",
+    imageUrl: "/images/pos.png",
+  },
+  {
+    id: 11,
+    title: "Autism Evaluation App",
+    technologies: ["C#", ".NET"],
+    description: "Implements the Gilliam Autism Rating Scale to assess child development.",
+    timeline: "Jan 2025",
+    imageUrl: "/images/autism-app.png",
+  },
+  {
+    id: 12,
+    title: "HR Training Management System",
+    technologies: ["C#", ".NET", "SQL Server"],
+    description: "Tracks trainings, attendees, departments, costs, and financial reports.",
+    timeline: "Feb – March 2025",
+    imageUrl: "/images/hr-system.png",
+  },
+  {
+    id: 13,
+    title: "ERP & Landing Page (Juman Intelligent Systems)",
+    technologies: ["Angular", "Next.js", ".NET"],
+    description: "Started ERP system and landing page before leaving the company.",
+    timeline: "April – May/June 2025",
+    imageUrl: "/images/erp.png",
+  },
+  {
+    id: 14,
+    title: "Tollab (Saf7a)",
+    technologies: ["Angular"],
+    description: "Ongoing educational video platform for all academic levels. First Angular project.",
+    timeline: "June 2025 – Present",
+    imageUrl: "/images/tollab.png",
+  },
 ];
 
 const Projects = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="text-center py-20 bg-white"
+      className="py-20 bg-black text-white"
       style={{ paddingLeft: 20, paddingRight: 20 }}
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-bold text-center mb-12"
+      >
+        Projects
+      </motion.h2>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+            className="bg-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden"
+          >
             <motion.div
-              key={project.id}
-              whileHover={{ scale: 1.05 }}
-              className="p-4 border rounded shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="relative h-48 overflow-hidden"
             >
-              <motion.img
+              <img
                 src={project.imageUrl}
                 alt={project.title}
-                className="w-full h-auto mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                className="w-full h-full object-cover"
               />
-              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="flex justify-around">
-                {project.github == "Private" ? (
-                  <h3 className="text-2xl font-bold mb-2">Private repo</h3>
-                ) : (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    className="text-2xl font-bold mb-2"
-                  >
-                    Github link
-                  </a>
-                )}
-                <br />
-                <a
-                  href={project.link}
-                  target="_blank"
-                  className="text-2xl font-bold mb-2"
-                >
-                  Active link
-                </a>
-              </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
+            
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+              <p className="text-sm text-gray-300 mb-4">{project.timeline}</p>
+              <p className="text-gray-400 mb-4">{project.description}</p>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };

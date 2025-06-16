@@ -36,9 +36,9 @@ const Certificates = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="py-20 "
+      className="py-20 bg-black"
     >
-      <h2 className="text-4xl font-bold text-center mb-8">Certificates</h2>
+      <h2 className="text-4xl font-bold text-center mb-8 text-white">Certificates</h2>
       <div
         className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         style={{ padding: 20 }}
@@ -46,8 +46,11 @@ const Certificates = () => {
         {certificates.map((certificate, index) => (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.05 }}
-            className="p-4 bg-white text-black rounded-lg shadow-md flex items-center flex-col gap-4"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+            className="p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg flex items-center flex-col gap-4"
           >
             <img
               src={certificate.image}
@@ -55,8 +58,8 @@ const Certificates = () => {
               className="w-75 h-75 mr-4"
             />
             <div className="flex flex-col items-center">
-              <h3 className="text-xl font-semibold">{certificate.title}</h3>
-              <p className="text-gray-500">{certificate.date}</p>
+              <h3 className="text-xl font-semibold text-white">{certificate.title}</h3>
+              <p className="text-gray-400">{certificate.date}</p>
             </div>
           </motion.div>
         ))}
