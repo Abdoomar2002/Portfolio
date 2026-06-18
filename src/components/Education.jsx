@@ -1,140 +1,62 @@
-// src/components/Education.js
 import React from "react";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { fadeUp, reveal, stagger } from "../utils/motion";
+
+const degree = {
+  title: "B.Sc. in Computer & Information Sciences",
+  org: "Assiut University",
+  period: "10/2020 – 07/2024",
+  meta: "CGPA 3.2",
+  description:
+    "Relevant coursework: Data Structures, Algorithms, Web Development, Database Management, and Operating Systems.",
+};
+
+const learning = [
+  { title: "ASP.NET Core 9 & Entity Framework Core", org: "Udemy", year: "2025" },
+  { title: "Design Patterns & SOLID Principles", org: "Udemy — Dmitri Nesteruk", year: "2025" },
+  { title: "Microservices Architecture & DDD", org: "Udemy", year: "2025" },
+  { title: "Angular — Complete Guide", org: "Udemy — Maximilian Schwarzmüller", year: "2024" },
+  { title: "React.js Masterclass", org: "Udemy — Maximilian Schwarzmüller", year: "2023" },
+];
 
 const Education = () => {
-  const educations = [
-    {
-      id: 1,
-      degree: "Bachelor of Computer and Information Sciences",
-      university: "Assiut University",
-      graduation: "2024",
-      cgpa: 3.2,
-      description: "Focused on software development, algorithms, and computer systems.",
-    },
-    {
-      id: 2,
-      degree: "Web Development Bootcamp",
-      university: "Udemy - Angela Yu",
-      graduation: "2022",
-      description: "Comprehensive web development course covering HTML, CSS, JavaScript, and modern frameworks.",
-    },
-    {
-      id: 3,
-      degree: "Desktop Application Development",
-      university: "College Course",
-      graduation: "2023",
-      description: "Learned .NET Framework fundamentals and desktop application development.",
-    },
-    {
-      id: 4,
-      degree: "React.js Masterclass",
-      university: "Udemy - Maximilian Schwarzmuller",
-      graduation: "2023",
-      description: "Advanced React.js concepts, hooks, and state management.",
-    },
-    {
-      id: 5,
-      degree: "Angular Development",
-      university: "Udemy - Maximilian Schwarzmuller",
-      graduation: "2024",
-      description: "Web development with Angular, including navigation and state management.",
-    },
-    {
-      id: 6,
-      degree: "Design Patterns and SOLID Principles",
-      university: "Udemy - Dimitri ",
-      graduation: "2025",
-      description: "Design Patterns and SOLID Principles.",
-    },
-    {
-      id: 7,
-      degree: "microservices architecture and DDD",
-      university: "Udemy",
-      graduation: "2025",
-      description: "Microservices architecture and DDD.",
-    },
-    {
-      id: 8,
-      degree: "ASP.NET Core 9 and Entity Framework Core",
-      university: "Udemy",
-      graduation: "2025",
-      description: "ASP.NET Core 9 and Entity Framework Core.",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="py-20 bg-black text-white"
-      style={{ paddingLeft: 20, paddingRight: 20 }}
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-bold text-center mb-12"
-      >
-        Education
-      </motion.h2>
+    <section id="education" className="py-24">
+      <div className="max-w-5xl mx-auto px-4">
+        <SectionHeader
+          tag="Education"
+          title="Degree &"
+          highlight="continuous learning"
+          subtitle="A computer-science degree backed by a steady habit of hands-on, architecture-focused learning."
+        />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto space-y-8"
-      >
-        {educations.map((education) => (
-          <motion.div
-            key={education.id}
-            variants={itemVariants}
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-            }}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6"
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-2xl font-bold mb-2 text-white">{education.degree}</h3>
-                <p className="text-lg text-gray-300">{education.university}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-lg font-semibold text-white">{education.graduation}</p>
-                {education.cgpa && (
-                  <p className="text-sm text-gray-400">CGPA: {education.cgpa}</p>
-                )}
-              </div>
+        {/* Degree */}
+        <motion.div variants={fadeUp} {...reveal} className="card-premium p-7 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <div>
+              <h3 className="text-xl font-bold text-white">{degree.title}</h3>
+              <p className="text-primary font-medium">{degree.org} · {degree.meta}</p>
             </div>
-            <p className="text-gray-400">{education.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.div>
+            <span className="chip whitespace-nowrap self-start">{degree.period}</span>
+          </div>
+          <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">{degree.description}</p>
+        </motion.div>
+
+        {/* Continuous learning */}
+        <motion.div variants={stagger(0.08)} {...reveal} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {learning.map((e, i) => (
+            <motion.div key={i} variants={fadeUp} className="card-premium p-6">
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <h3 className="text-base font-bold text-white leading-snug">{e.title}</h3>
+                <span className="chip whitespace-nowrap">{e.year}</span>
+              </div>
+              <p className="text-primary text-sm font-medium">{e.org}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

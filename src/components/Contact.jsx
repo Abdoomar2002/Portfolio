@@ -1,156 +1,81 @@
-// src/components/Contact.js
 import React from "react";
 import { motion } from "framer-motion";
+import { fadeUp, reveal, stagger } from "../utils/motion";
+
+const info = {
+  email: "abdo20omar20@gmail.com",
+  phone: "+20 102 578 4881",
+  location: "Cairo, Egypt",
+};
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/Abdoomar2002", path: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/abdo-omar-b95301363/", path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" },
+  { label: "YouTube", href: "https://www.youtube.com/@Eng_AbdoOmar", path: "M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" },
+];
 
 const Contact = () => {
-  const contactInfo = {
-    email: "abdo20omar20@gmail.com",
-    phone: "01025784881",
-    location: "Cairo, Egypt",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/abdo-omar-b95301363/",
-      github: "https://github.com/Abdoomar2002",
-      portfolio: "https://portfolio-abdelrahman-omar.vercel.app/"
-    }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="py-20 bg-black text-white"
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto px-4"
-      >
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-12"
+    <section id="contact" className="py-24">
+      <div className="max-w-4xl mx-auto px-4">
+        <motion.div
+          variants={fadeUp}
+          {...reveal}
+          className="card-premium relative overflow-hidden p-10 sm:p-14 text-center"
         >
-          Get in Touch
-        </motion.h2>
+          {/* glow accent */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle,#2dd4bf,transparent 65%)" }} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div
-            variants={itemVariants}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-            <div className="space-y-4">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center space-x-4"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a href={`mailto:${contactInfo.email}`} className="text-gray-300 hover:text-white transition-colors">
-                  {contactInfo.email}
-                </a>
-              </motion.div>
+          <span className="section-tag mx-auto">Contact</span>
+          <h2 className="mt-6 text-3xl sm:text-5xl font-bold text-white">
+            Let's build something <span className="text-gradient">great together</span>
+          </h2>
+          <p className="mt-4 text-[var(--text-secondary)] max-w-xl mx-auto">
+            Have a project in mind or an opportunity to discuss? I'm always open to a good conversation —
+            my inbox is the fastest way to reach me.
+          </p>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center space-x-4"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <a href={`tel:${contactInfo.phone}`} className="text-gray-300 hover:text-white transition-colors">
-                  {contactInfo.phone}
-                </a>
-              </motion.div>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a href={`mailto:${info.email}`} className="btn-primary">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              Email me
+            </a>
+            <a href={`tel:${info.phone.replace(/\s/g, "")}`} className="btn-ghost">Call me</a>
+          </div>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center space-x-4"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-gray-300">{contactInfo.location}</span>
-              </motion.div>
-            </div>
+          <motion.div variants={stagger(0.08)} {...reveal} className="mt-10 grid sm:grid-cols-3 gap-4 text-left">
+            <motion.div variants={fadeUp} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-muted)]">Email</p>
+              <a href={`mailto:${info.email}`} className="text-sm text-white break-all hover:text-primary">{info.email}</a>
+            </motion.div>
+            <motion.div variants={fadeUp} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-muted)]">Phone</p>
+              <a href={`tel:${info.phone.replace(/\s/g, "")}`} className="text-sm text-white hover:text-primary">{info.phone}</a>
+            </motion.div>
+            <motion.div variants={fadeUp} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
+              <p className="text-xs uppercase tracking-wider text-[var(--text-muted)]">Location</p>
+              <p className="text-sm text-white">{info.location}</p>
+            </motion.div>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-white">Connect with Me</h3>
-            <div className="space-y-4">
+          <div className="mt-8 flex justify-center gap-3">
+            {socials.map((s) => (
               <motion.a
-                whileHover={{ scale: 1.02 }}
-                href={contactInfo.socials.linkedin}
+                key={s.label}
+                href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors"
+                aria-label={s.label}
+                whileHover={{ y: -4, scale: 1.08 }}
+                className="grid place-items-center w-11 h-11 rounded-xl border border-white/10 bg-white/[0.03] text-[var(--text-secondary)] hover:text-primary hover:border-primary/50 transition-colors"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                <span>LinkedIn</span>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d={s.path} /></svg>
               </motion.a>
-
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                href={contactInfo.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                <span>GitHub</span>
-              </motion.a>
-
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                href={contactInfo.socials.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                <span>Portfolio</span>
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

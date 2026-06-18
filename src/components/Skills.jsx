@@ -1,181 +1,80 @@
-// src/components/Skills.js
 import React from "react";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { fadeUp, reveal, stagger } from "../utils/motion";
 
 const skills = {
-  frontend: [
-    "React.js",
-    "Angular",
-    "Vue.js",
-    "Next.js",
-    "JavaScript",
-    "TypeScript",
-    "Bootstrap",
-    "Tailwind CSS",
-    "HTML5",
-    "CSS3",
-    "jQuery"
-  ],
-  backend: [
-    "C#",
-    "ASP.NET Core",
-    "ASP.NET MVC",
-    "ASP.NET WebForms",
-    "Entity Framework Core",
-    "RESTful APIs",
-    "Web API",
-    "OOP",
-    "Design Patterns",
-    "SOLID Principles",
-    "LINQ"
-  ],
-  databases: [
-    "SQL Server",
-    "SQLite"
-  ],
-  devops_tools: [
-    "Git",
-    "GitHub",
-    "Deployment via Vercel",
-    "Manual CI flows",
-    "Basic DNS and Email Configuration"
-  ],
-  project_management: [
-    "Trello",
-    "Jira"
-  ],
-  testing: [
-    "Jest",
-    "Manual UI testing",
-    "Excel-based output validation"
-  ],
-  soft_skills: [
-    "Problem-solving",
-    "Time management",
-    "Team collaboration",
-    "Adaptability",
-    "Self-learning",
-    "Communication"
-  ],
-  other: [
-    "WebSocket",
-    "JWT",
-    "Agile/Scrum",
-    "Debugging .NET Applications",
-    "Deploying .NET Web Applications",
-    "Building Scalable Web Systems",
-    "YouTube Content Creation (SOLID & Design Patterns)"
-  ]
+  "Languages": {
+    icon: "🔤",
+    items: ["C#", "TypeScript", "JavaScript", "SQL", "HTML5", "CSS3"],
+  },
+  "Backend (.NET)": {
+    icon: "⚙️",
+    items: ["ASP.NET Core", "Web API", "Minimal APIs", ".NET 8 / 9 / 10", "EF Core", "LINQ", "SignalR", "RESTful APIs"],
+  },
+  "Frontend": {
+    icon: "🎨",
+    items: ["Angular", "React.js", "Next.js", "RxJS", "Redux Toolkit", "TanStack Query", "Tailwind CSS", "Bootstrap", "SCSS"],
+  },
+  "Architecture & Patterns": {
+    icon: "🧩",
+    items: ["Clean Architecture", "DDD", "CQRS", "MediatR", "Vertical Slice", "Multi-Tenant SaaS", "SOLID", "Design Patterns", "DI"],
+  },
+  "APIs & Integrations": {
+    icon: "🔌",
+    items: ["REST", "SOAP", "XML", "SFTP", "Webhooks", "OAuth2", "JWT", "ASP.NET Identity", "Amazon SP-API", "DATEV", "Odoo ERP"],
+  },
+  "Databases & DevOps": {
+    icon: "🛠️",
+    items: ["SQL Server", "PostgreSQL", "SQLite", "T-SQL", "Docker", "Git & CI/CD", "IIS", "Windows Services", "Azure", "Swagger", "Serilog", "xUnit"],
+  },
 };
 
-const categoryIcons = {
-  frontend: "💻",
-  backend: "⚙️",
-  databases: "🗄️",
-  devops_tools: "🛠️",
-  project_management: "📋",
-  testing: "🧪",
-  soft_skills: "🤝",
-  other: "✨"
-};
-
-const categoryTitles = {
-  frontend: "Frontend Development",
-  backend: "Backend Development",
-  databases: "Databases",
-  devops_tools: "DevOps & Tools",
-  project_management: "Project Management",
-  testing: "Testing & Quality",
-  soft_skills: "Soft Skills",
-  other: "Other Skills"
-};
+const marquee = ["C#", ".NET", "ASP.NET Core", "Angular", "React", "Next.js", "TypeScript", "EF Core", "SQL Server", "CQRS", "DDD", "SignalR", "Docker", "Azure"];
 
 const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <section className="py-16 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-16 text-white"
-        >
-          Technical Expertise
-        </motion.h2>
+    <section id="skills" className="py-24">
+      <div className="max-w-6xl mx-auto px-4">
+        <SectionHeader
+          tag="Skills"
+          title="My technical"
+          highlight="toolkit"
+          subtitle="The .NET-centric stack I rely on to take a product from first commit to production — paired with modern Angular and React front-ends."
+        />
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={stagger(0.08)}
+          {...reveal}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {Object.entries(skills).map(([category, skillList]) => (
-            <motion.div
-              key={category}
-              variants={itemVariants}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-              }}
-              className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm"
-            >
+          {Object.entries(skills).map(([category, { icon, items }]) => (
+            <motion.div key={category} variants={fadeUp} className="card-premium p-6 group">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">{categoryIcons[category]}</span>
-                <h3 className="text-xl font-bold text-white">
-                  {categoryTitles[category]}
-                </h3>
+                <span className="grid place-items-center w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-2xl group-hover:scale-110 transition-transform">
+                  {icon}
+                </span>
+                <h3 className="text-lg font-bold text-white">{category}</h3>
               </div>
-              
               <div className="flex flex-wrap gap-2">
-                {skillList.map((skill, index) => (
-                  <motion.span
-                    key={index}
-                    whileHover={{ 
-                      scale: 1.05,
-                      backgroundColor: "rgb(31, 41, 55)",
-                    }}
-                    className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
-                  >
-                    {skill}
-                  </motion.span>
+                {items.map((item) => (
+                  <span key={item} className="chip">{item}</span>
                 ))}
               </div>
             </motion.div>
           ))}
         </motion.div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Continuously expanding my skill set to stay at the forefront of web development technologies and best practices.
-          </p>
-        </motion.div>
+      {/* infinite tech marquee */}
+      <div className="marquee mt-14 py-4 border-y border-white/5">
+        <div className="marquee-track">
+          {[...marquee, ...marquee].map((t, i) => (
+            <span key={i} className="font-display text-2xl sm:text-3xl font-semibold text-white/15 px-6 whitespace-nowrap">
+              {t}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
